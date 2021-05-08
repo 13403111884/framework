@@ -13,11 +13,11 @@ export default defineComponent({
     const setValue = () => {
       value.value = !value.value;
     };
-    const requestPermission = Notification.requestPermission();
-    function randomNotification() {
+    function randomNotification(data) {
       var notifTitle = `games[randomItem].name sss`;
       var notifBody = `Created by games[randomItem].author. sss`;
       var options = {
+        data,
         requireInteraction: true,
         body: notifBody,
         // icon: notifImg
@@ -34,7 +34,7 @@ export default defineComponent({
         window.focus();
         const loglevel = localStorage.getItem(`loglevel:webpack-dev-server`);
         alert(`点击了弹窗`);
-        console.log(`点击进入`, loglevel);
+        console.log(`点击进入`, loglevel, e);
       };
       notification.onclose = function (e) {
         alert(`关闭了弹窗`);
@@ -45,10 +45,15 @@ export default defineComponent({
       };
     }
 
-    const notifications = () => {
-      requestPermission.then(function (result) {
+    const notifications = async () => {
+      Notification.requestPermission(function (result) {
+        if (Notification.permission !== result) {
+          Notification.permission = result;
+        }
         if (result === `granted`) {
-          randomNotification();
+          randomNotification({ type: 'eee' });
+        } else {
+          alert(`您已拒绝通知许可，如果想使用通知功能需手动开启`);
         }
       });
     };
