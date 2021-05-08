@@ -1,4 +1,5 @@
 module.exports = async (ctx, next) => {
+  console.log('ctxctxctxctx', ctx.request.header.cookie)
   const apiMap = {
     '/api/list': [
       { c: 1 },

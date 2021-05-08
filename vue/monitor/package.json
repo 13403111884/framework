@@ -1,0 +1,23 @@
+{
+  "name": "sdk",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "dev": "cross-env NODE_ENV=develop rollup -c --watch",
+    "build": "cross-env NODE_ENV=production rollup -c",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/core": "^7.13.10",
+    "babel": "^6.23.0",
+    "babel-loader": "^8.2.2",
+    "cross-env": "^7.0.3",
+    "rollup": "^2.41.2",
+    "rollup-plugin-babel": "^4.4.0"
+  }
+}
