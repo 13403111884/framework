@@ -1,4 +1,5 @@
 const path = require('path')
+const { createFalse } = require('typescript')
 
 function resolve (dir) {
   return path.join(__dirname, dir)
@@ -10,6 +11,10 @@ module.exports = {
     port: 8080,
     historyApiFallback: true,
     headers: { 'Access-Control-Allow-Origin': '*' },
+    overlay: {
+      warnings: false,
+      errors: true
+    },
     proxy: {
       '^/client': {
         target: 'http://localhost:5000',

@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "vue-cli-service serve",
-    "serve": "vue-cli-service serve",
+    "dev": "cross-env NODE_ENV=developer vue-cli-service serve",
+    "serve": "cross-env NODE_ENV=production vue-cli-service serve",
     "build": "cross-env NODE_ENV=production vue-cli-service build",
     "dev-build": "cross-env NODE_ENV=developer vue-cli-service build",
     "cNpm": "npm --registry https://registry.npm.taobao.org install",
