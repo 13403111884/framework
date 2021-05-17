@@ -48,16 +48,6 @@
 </template>
 <script lang="ts">
 import { defineComponent, reactive } from "vue"
-import bubble from "./../assets/img/suanSa/maoPao.gif"
-import sequence from "./../assets/img/suanSa/xuanZe.gif"
-import insert from "./../assets/img/suanSa/chaRu.gif"
-import xier from "./../assets/img/suanSa/xiEr.gif"
-import merger from "./../assets/img/suanSa/guiBing.gif"
-import fast from "./../assets/img/suanSa/kuaiSu.gif"
-import heap from "./../assets/img/suanSa/dui.gif"
-import count from "./../assets/img/suanSa/jiShu.gif"
-import barrel from "./../assets/img/suanSa/tong.png"
-import radix from "./../assets/img/suanSa/ji-shu.gif"
 export default defineComponent({
   setup() {
     const RawData = reactive({
@@ -102,7 +92,7 @@ export default defineComponent({
         title: `冒泡排序`,
         timeComplexity: `O(n^2)`,
         stability: `稳定`,
-        img: bubble,
+        img: `/img/suanSa/maoPao.gif`,
         describe: {
           val: `冒泡排序是一种简单的排序算法。它重复地走访过要排序的数列，一次比较两个元素，如果它们的顺序错误就把它们交换过来。走访数列的工作是重复地进行直到没有再需要交换，也就是说该数列已经排序完成。这个算法的名字由来是因为越小的元素会经由交换慢慢“浮”到数列的顶端。`,
           arr: [
@@ -139,7 +129,7 @@ export default defineComponent({
         title: `选择排序`,
         timeComplexity: `O(n^2)`,
         stability: `不稳定`,
-        img: sequence,
+        img: `/img/suanSa/xuanZe.gif`,
         describe: {
           val: `选择排序(Selection-sort)是一种简单直观的排序算法。它的工作原理：首先在未排序序列中找到最小（大）元素，存放到排序序列的起始位置，然后，再从剩余未排序元素中继续寻找最小（大）元素，然后放到已排序序列的末尾。以此类推，直到所有元素均排序完毕。 `,
           arr: [
@@ -155,7 +145,7 @@ export default defineComponent({
         title: `插入排序`,
         timeComplexity: `O(n^2)`,
         stability: `稳定`,
-        img: insert,
+        img: `/img/suanSa/chaRu.gif`,
         describe: {
           val: `插入排序（Insertion-Sort）的算法描述是一种简单直观的排序算法。它的工作原理是通过构建有序序列，对于未排序数据，在已排序序列中从后向前扫描，找到相应位置并插入`,
           arr: [
@@ -174,7 +164,7 @@ export default defineComponent({
         title: `希尔排序`,
         timeComplexity: `O(n^2)`,
         stability: `不稳定`,
-        img: xier,
+        img: `/img/suanSa/xiEr.gif`,
         describe: {
           val: `1959年Shell发明，第一个突破平均值O(n^2)的排序算法，是简单插入排序的改进版。它与插入排序的不同之处在于，它会优先比较距离较远的元素。希尔排序又叫缩小增量排序。`,
           arr: [
@@ -190,7 +180,7 @@ export default defineComponent({
         title: `归并排序`,
         timeComplexity: `O(nlogn)`,
         stability: `稳定`,
-        img: merger,
+        img: `/img/suanSa/guiBing.gif`,
         describe: {
           val: `归并排序是建立在归并操作上的一种有效的排序算法。该算法是采用分治法（Divide and Conquer）的一个非常典型的应用。将已有序的子序列合并，得到完全有序的序列；即先使每个子序列有序，再使子序列段间有序。若将两个有序表合并成一个有序表，称为2-路归并。`,
           arr: [
@@ -206,7 +196,7 @@ export default defineComponent({
         title: `快速排序`,
         timeComplexity: `O(nlogn)`,
         stability: `不稳定`,
-        img: fast,
+        img: `/img/suanSa/kuaiSu.gif`,
         describe: {
           val: `快速排序的基本思想：通过一趟排序将待排记录分隔成独立的两部分，其中一部分记录的关键字均比另一部分的关键字小，则可分别对这两部分记录继续进行排序，以达到整个序列有序。`,
           arr: [
@@ -222,7 +212,7 @@ export default defineComponent({
         title: `堆排序`,
         timeComplexity: `O(nlogn)`,
         stability: `不稳定`,
-        img: heap,
+        img: `/img/suanSa/dui.gif`,
         describe: {
           val: `堆排序（Heapsort）是指利用堆这种数据结构所设计的一种排序算法。堆积是一个近似完全二叉树的结构，并同时满足堆积的性质：即子结点的键值或索引总是小于（或者大于）它的父节点。`,
           arr: [
@@ -238,7 +228,7 @@ export default defineComponent({
         title: `计数排序`,
         timeComplexity: `O(n+k)`,
         stability: `稳定`,
-        img: count,
+        img: `/img/suanSa/jiShu.gif`,
         describe: {
           val: `计数排序不是基于比较的排序算法，其核心在于将输入的数据值转化为键存储在额外开辟的数组空间中。 作为一种线性时间复杂度的排序，计数排序要求输入的数据必须是有确定范围的整数。`,
           arr: [
@@ -255,7 +245,7 @@ export default defineComponent({
         title: `桶排序`,
         timeComplexity: `O(n^2)`,
         stability: `稳定`,
-        img: barrel,
+        img: `/img/suanSa/tong.png`,
         describe: {
           val: `桶排序是计数排序的升级版。它利用了函数的映射关系，高效与否的关键就在于这个映射函数的确定。桶排序 (Bucket sort)的工作的原理：假设输入数据服从均匀分布，将数据分到有限数量的桶里，每个桶再分别排序（有可能再使用别的排序算法或是以递归方式继续使用桶排序进行排）。`,
           arr: [
@@ -272,7 +262,7 @@ export default defineComponent({
         title: `基数排序`,
         timeComplexity: `O(n*k)`,
         stability: `稳定`,
-        img: radix,
+        img: `/img/suanSa/ji-shu.gif`,
         describe: {
           val: `基数排序是按照低位先排序，然后收集；再按照高位排序，然后再收集；依次类推，直到最高位。有时候有些属性是有优先级顺序的，先按低优先级排序，再按高优先级排序。最后的次序就是高优先级高的在前，高优先级相同的低优先级高的在前`,
           arr: [
