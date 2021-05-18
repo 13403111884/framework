@@ -15,6 +15,8 @@
           </ul>
         </li>
       </ol>
+      <h3>算法复杂度</h3>
+      <img :src="RawData.img" alt="">
     </div>
     <div v-for="(key, index) in Object.keys(algorithm)" :key="index">
       <p>---------------------</p>
@@ -36,7 +38,7 @@
       </div>
       <div v-if="algorithm[key].code">
         <h5>代码示例</h5>
-        <xmp> {{ algorithm[key].code }}</xmp>
+        <!-- <xmp> {{ algorithm[key].code }}</xmp> -->
       </div>
       <p>
         输出：
@@ -69,6 +71,7 @@ export default defineComponent({
         50,
         48
       ],
+      img: `/img/suanSa/fuZaDu.png`,
       classify: [
         {
           type: `比较类排序`,
@@ -291,27 +294,25 @@ export default defineComponent({
       }
       return data
     }
-    bubbleSort(algorithm.bubble.arr)
 
-    // 选择排序 (还需要调试)
+    // 选择排序
     function sequenceSort (data: number[]) {
       const dataLength = data.length
-      let minIndex
-      let temp
       for (let i = 0; i < dataLength - 1; i++) {
-        minIndex = i
-        for (let index = 0; index < dataLength; index++) {
+        let minIndex = i
+        for (let index = i+1; index < dataLength; index++) {
           if (data[index] < data[minIndex]) {
             minIndex = index
           }
         }
-        temp = data[i]
-        data[i] = data[minIndex]
-        data[minIndex] = temp
+        if (minIndex !== i) {
+          const temp = data[i]
+          data[i] = data[minIndex]
+          data[minIndex] = temp
+        }
       }
       return data
     }
-    sequenceSort(algorithm.sequence.arr)
 
     // 插入排序
     const insertSort = (data: number[]) => {
@@ -329,7 +330,6 @@ export default defineComponent({
       }
       return data
     }
-    insertSort(algorithm.insert.arr)
 
     // 希尔排序
     const xierSort = (data: number[]) => {
@@ -352,10 +352,9 @@ export default defineComponent({
       }
       return data
     }
-    xierSort(algorithm.xier.arr)
 
-    // 归并排序 (还需要调试)
-    function merge(left: number[], right: number[]) {
+    // 归并排序
+    const merge = (left: number[], right: number[]) => {
       const result = []
       while (left.length > 0 && right.length > 0) {
         if (left[0] <= right[0]) {
@@ -378,7 +377,6 @@ export default defineComponent({
       const right = data.slice(middle)
       return merge(mergerSort(left), mergerSort(right))
     }
-    mergerSort(algorithm.merger.arr)
 
     // 快速排序
     function partition(arr: number[], left: number, right: number) {
@@ -416,7 +414,6 @@ export default defineComponent({
       }
       return data
     }
-    fastSort(algorithm.fast.arr, null, null)
 
     // 堆排序
     let heapLen = 0
@@ -452,7 +449,6 @@ export default defineComponent({
       }
       return data
     }
-    heapSort(algorithm.heap.arr)
 
     // 计数排序
     const countSort = (data: number[], maxValue: number) => {
@@ -477,7 +473,6 @@ export default defineComponent({
 
       return data
     }
-    countSort(algorithm.count.arr, 200)
 
     // 桶排序
     const barrelSort = (data: number[], bucketSize: number | null) => {
@@ -519,11 +514,10 @@ export default defineComponent({
       }
       return data
     }
-    barrelSort(algorithm.barrel.arr, null)
-
-    // 基数排序 (还需要调试)
+    
+    // 基数排序
     const counter: any = []
-    const radixSort = (data: number[], maxDigit: number) => {
+    const radixSort = (data: number[], maxDigit: number) => { // maxDigit 最大位数
       let mod = 10
       let dev = 1
       for (let i = 0; i < maxDigit; i++, dev *= 10, mod *= 10) {
@@ -546,7 +540,17 @@ export default defineComponent({
       }
       return data
     }
-    radixSort(algorithm.radix.arr, 100)
+
+    bubbleSort(algorithm.bubble.arr)
+    sequenceSort(algorithm.sequence.arr)
+    insertSort(algorithm.insert.arr)
+    xierSort(algorithm.xier.arr)
+    algorithm.merger.arr = mergerSort(algorithm.merger.arr)
+    fastSort(algorithm.fast.arr, null, null)
+    heapSort(algorithm.heap.arr)
+    countSort(algorithm.count.arr, 200)
+    barrelSort(algorithm.barrel.arr, null)
+    radixSort(algorithm.radix.arr, 2)
 
     return {
       algorithm,
